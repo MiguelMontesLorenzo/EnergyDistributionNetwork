@@ -2,7 +2,7 @@
 
 ---
 
-## 1. Introduction to the Problem
+## 1. Problem Description
 
 Electric grids are intricate networks responsible for transmitting electricity from production facilities to consumers. These networks comprise various nodes, including power production units, transmission lines, and consumption sectors. Optimizing the energy distribution within such a network is a critical task, ensuring that electricity is delivered efficiently, economically, and reliably.
 
