@@ -156,11 +156,11 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 12. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
      
-       - $\sum_{t} W_{i,p} \times p_{i,t} = \text{dailyHyd}_{i} \times W_{i,p}$
+       - $\sum_{t} W_{i,p} \times p_{i,t} = dailyHyd_i \times W_{i,p}$
      
    - Daily stipulated production:
     
-       - $\text{dailyHyd}_{i} = PH_{i} \times H_{i}$
+       - $dailyHyd_{i} = PH_{i} \times H_{i}$
 
 13. **Solar and wind productions are fixed:**
     
