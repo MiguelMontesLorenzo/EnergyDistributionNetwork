@@ -35,7 +35,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 ---
 
-## 2. Problem Modelization and Formulation
+## 3. Problem Modelization and Formulation
 
 ### Sets
 
@@ -172,7 +172,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 
 
 
-### Scripts of the Project
+### 4. Scripts of the Project
 
 1. **main.py**
     - **Functions/Methods**:
