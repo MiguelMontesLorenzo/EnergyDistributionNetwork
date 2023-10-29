@@ -75,7 +75,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $e_{i,j,t}$: Energy transferred from $i$ to $j$ at time $t \quad [\text{kwh}]$
 - $loss_{i,j,t}$: Energy loss in cable $ij \quad [\text{kwh}]$
 - $intensity_{i,j,t}$: Current intensity on cable $ij \quad [A]$ 
-- $dailyHyd_{u}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
+- $dailyHyd_{i}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
 
 ### Objective Function
 
