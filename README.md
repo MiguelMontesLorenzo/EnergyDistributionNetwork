@@ -20,7 +20,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
    For this reason, in this project the potential drop between nodes $V_{i,j}$ will be taken as a constant of the line, and the PowerFlow will be defined as the product of the current at the node and the potential drop.
 
-   $S_{i,j} = V_{i,j} I_{i,j} = cte_{i,j} I_{i,j}$
+   $S_{i,j} = V_{i,j} I_{i,j} \alpha I_{i,j}$
 
    ###### *Note: As a consequence of the discretisation of the problem, hourly time intervals are used instead of continuous time. For consistency in the following the power* $e_{i,j,t}$ *will be expressed in units of energy [kwh] (power per hour).*
 
