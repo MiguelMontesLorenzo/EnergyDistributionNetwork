@@ -100,11 +100,11 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
   - $e_{i,j,t} = (- e_{j,i,t})$
   - $loss_{i,j,t} = (- loss_{j,i,t})$
 
-5. **Loss definition:**
+5. **Define Loss as proportional to **$I$**:**
 
   - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
 
-6. **Total PowerFlow in terms of **$V I$**:**
+6. **Define PowerFlow as **$V I$**:**
 
   - $e_{i,j,t} = (V_{i,j} - R_{i,j} \times L_{i,j}) \times intensity_{i,j,t}$
 
