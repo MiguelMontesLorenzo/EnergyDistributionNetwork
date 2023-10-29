@@ -67,79 +67,98 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 ### Constraints
 
 1. **Total demand covered (Kirchoff 1):**
+
 $\sum_{i} e_{i,j,t} \leq p_{i,t} - DEM_{i,t}$
 
 2. **Production must cover losses (Kirchoff 2):**
+
 $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{i,t}$
 
 3. **Power in line = Powerflow + loss:**
+
 $e_{i,j,t} + loss_{i,j,t} = V_{i,j} \times intensity_{i,j,t}$
 
 4. **PowerFlow sign depends on direction:**
+
 $e_{i,j,t} = (- e_{j,i,t})$
 $loss_{i,j,t} = (- loss_{j,i,t})$
 
 5. **Loss definition:**
+
 $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
 
 6. **Total PowerFlow in function of VI:**
+
 $e_{i,j,t} = (V_{i,j} - R_{i,j} \times L_{i,j}) \times intensity_{i,j,t}$
 
 7. **PowerFlow limits:**
+
 $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j}$
 
 8. **No PowerFlow between non-connected nodes:** (if $CONN_{i,j} = 0$)
+
 $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0$
 
 9. **Positive production:**
+
 $p_{i,t} \geq 0$
 
 10. **Define maximum productions:**
+
 $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
 
 Sure, continuing with the constraints:
 
 11. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
    - Maximum production if active:
-     $     p_{i,t} \leq MAXPROD_p \times a_{i,t}
-     \]
+
+     $p_{i,t} \leq MAXPROD_p \times a_{i,t}$
+     
    - Minimum production if active:
-     $     p_{i,t} \geq THRESHOLD_p \times a_{i,t}
-     \]
+   - 
+     $p_{i,t} \geq THRESHOLD_p \times a_{i,t}$
+     
    - Turning off:
-     $     a_{i,t-1} \geq a_{i,t} + \varepsilon \Leftrightarrow \text{off} = 1
-     \]
+   - 
+     $a_{i,t-1} \geq a_{i,t} + \varepsilon \Leftrightarrow \text{off} = 1$
+     
      Which can be linearized as:
-     $     a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t}
-     \]
+     
+     $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t}$
+     
      and
-     $     \text{off} = 1 \Rightarrow a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t})
-     \]
+     
+     $\text{off} = 1 \Rightarrow a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t})$
+     
    - Turning on:
-     $     a_{i,t} \geq a_{i,t-1} + \varepsilon \Leftrightarrow \text{on} = 1
-     \]
+     
+     $a_{i,t} \geq a_{i,t-1} + \varepsilon \Leftrightarrow \text{on} = 1$
+     
      Which can be linearized as:
-     $     a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}
-     \]
+     
+     $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}$
+     
      and
-     $     \text{on} = 1 \Rightarrow a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})
-     \]
+     
+     $\text{on} = 1 \Rightarrow a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
 
 12. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
-     $     \sum_{t} W_{i,p} \times p_{i,t} = \text{dailyHyd}_{i} \times W_{i,p}
-     \]
+     
+     $\sum_{t} W_{i,p} \times p_{i,t} = \text{dailyHyd}_{i} \times W_{i,p}$
+     
    - Daily stipulated production:
-     $     \text{dailyHyd}_{i} = PH_{i} \times H_{i}
-     \]
+   - 
+     $\text{dailyHyd}_{i} = PH_{i} \times H_{i}$
 
 13. **Solar and wind productions are fixed:**
+    
    - Solar production:
-     $     p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}
-     \]
+   - 
+     $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
+     
    - Wind production:
-     $     p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}
-     \]
+     $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
 
 
 
