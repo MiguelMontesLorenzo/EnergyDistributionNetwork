@@ -30,7 +30,7 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 
 ### Parameters
 
-- $DEM_{c,t}$: Electrical demand of sector c at time t [MWh]
+- $DEM_{i,t}$: Electrical demand of node $i$ at time $t % [MWh]$
 - $MAXPROD_{i}$: Maximum production capacity of node i [MWh]
 - $MINPROD_{i}$: Minimum production of node i [MWh]
 - $THRESHOLD_{i}$: Production required if node i is active [MWh]
