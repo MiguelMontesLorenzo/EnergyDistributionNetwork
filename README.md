@@ -78,7 +78,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $dailyHyd_{i}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
 
 ### Objective Function
-- $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u,t} \times FXCOST_{p} + on_{u,t} \times TRNONCOST_{p} + off_{u,t} \times TRNOFFCOST_{p} \right)$
+- $\text{minimize} \sum_{i,t} W_{i,p} \left( p_{i,t} \times UNITARYCOST_{p} + a_{i,t} \times FXCOST_{p} + on_{i,t} \times TRNONCOST_{p} + off_{i,t} \times TRNOFFCOST_{p} \right)$
 
 ### Constraints
 
