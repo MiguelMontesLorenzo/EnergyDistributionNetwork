@@ -16,7 +16,7 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 
    $S_{i,j} = V_{i} I_{i,j} = V^2_{i,j} / R_{i,j}$
   
-   $\text{Kirchoff Law: } \sum_{j} S_{i,j} = S^p_i S^c_{i}$
+   $\text{Kirchoff Law: } \sum_{j} S_{i,j} = S^p_i - S^c_{i}$
 
    For this reason, in this project the potential drop between nodes $V_{i,j}$ will be taken as a constant of the line, and the PowerFlow will be defined as the product of the current at the node and the potential drop.
 
