@@ -6,7 +6,7 @@
 
 Electric grids are intricate networks responsible for transmitting electricity from production facilities to consumers. These networks comprise various nodes, including power production units, transmission lines, and consumption sectors. Optimizing the energy distribution within such a network is a critical task, ensuring that electricity is delivered efficiently, economically, and reliably.
 
-In this project, we tackle the optimization problem of energy distribution within an electrical grid. The main goal is to minimize the total operational cost of the network while satisfying energy demands, maintaining grid stability, and respecting the physical constraints of the infrastructure.
+In this project, we tackle the optimization problem of energy distribution within an electrical grid using the python pyomo package. The main goal is to minimize the total operational cost of the network while satisfying energy demands, maintaining grid stability, and respecting the physical constraints of the infrastructure.
 
 ---
 
