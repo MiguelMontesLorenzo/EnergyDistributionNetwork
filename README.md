@@ -206,3 +206,21 @@ In this project, we tackle the optimization problem of energy distribution withi
         - Display and interpret the results.
 
 
+---
+
+## 5. How to use
+
+1. **Create Data**
+
+Insert in the `data` folder the .csv files corresponding to the description of the electrical network to be optimised.  In order to facilitate the creation of the datasets, a script with the address `.\data\createCSVs.py` has been included to automate the creation of the relevant .csv files by modifying a series of descriptive files located in `.\data\indications`.  
+
+In any case, this repository already contains a fully functional dataset available for model testing by third parties. So this first step of data creation is perfectly avoidable.
+
+
+2. **Execute Model**
+
+Proceed to install the packages listed in the requirements.txt.
+
+Open the `main.py` script and adjust its global parameters (defined below the packet import section) to set the solver to be used during the optimisation of the model, and the generation of video showing the optimal evolution over time of the network described in the previous step.
+
+Finally, just run the `main.py` script.
