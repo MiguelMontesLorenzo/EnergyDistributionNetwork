@@ -30,13 +30,13 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 
 ### Parameters
 
-- $DEM_{i,t}$: Electrical demand of node $i$ at time $t \quad [MWh]$
-- $MAXPROD_{i}$: Maximum production capacity of node $i \quad [MWh]$
-- $MINPROD_{i}$: Minimum production of node $i \quad [MWh]$
-- $THRESHOLD_{i}$: Production required if node $i$ is active $\quad [MWh]$
-- $SOLAR_{i,t}$: Solar production of node $i$ at time $t \quad [MWh]$
-- $WIND_{i,t}$: Wind power production of node $i$ at time $t \quad [MWh]$
-- $UNITARYCOST_{p}$: Unitary production cost of unit type $p \quad [€/MWh]$
+- $DEM_{i,t}$: Electrical demand of node $i$ at time $t \quad [\text{kwh}]$
+- $MAXPROD_{i}$: Maximum production capacity of node $i \quad [\text{kwh}]$
+- $MINPROD_{i}$: Minimum production of node $i \quad [\text{kwh}]$
+- $THRESHOLD_{i}$: Production required if node $i$ is active $\quad [\text{kwh}]$
+- $SOLAR_{i,t}$: Solar production of node $i$ at time $t \quad [\text{kwh}]$
+- $WIND_{i,t}$: Wind power production of node $i$ at time $t \quad [\text{kwh}]$
+- $UNITARYCOST_{p}$: Unitary production cost of unit type $p \quad [€/\text{kwh}]$
 - $FXCOST_{p}$: Fixed cost of keeping a node type $p$ working $\quad [€]$
 - $TRNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
 - $TRNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
@@ -46,19 +46,19 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 - $V_{i,j}$: Voltage of cable $ij \quad [kV]$
 - $R_{i,j}$: Cable $ij$ resistance $\quad [\Omega/km] ~15$
 - $H_{i}$: Height of hydraulic press water at time $t \quad [m]$
-- $PH_{i}$: Relationship between height of hydraulic press and maximum production $\quad [MWh/m]$
+- $PH_{i}$: Relationship between height of hydraulic press and maximum production $\quad [\text{kwh}/m]$
 - $F_{i}$: Minimum flowing water $\quad [m^3]$
 
 ### Variables
 
-- $p_{i,t}$: Production of node $i$ at time $t \quad [MWh]$
+- $p_{i,t}$: Production of node $i$ at time $t \quad [\text{kwh}]$
 - $a_{i,t}$: Node $i$ active (producing) at time $t \quad {0,1}$
 - $on_{i,t}$: Time when node $i$ production is turned on $\quad {0,1}$
 - $off_{i,t}$: Time when node $i$ production is turned off $\quad {0,1}$
-- $e_{i,j,t}$: Energy transferred from $i$ to $j$ at time $t \quad [MWh]$
+- $e_{i,j,t}$: Energy transferred from $i$ to $j$ at time $t \quad [\text{kwh}]$
 - $loss_{i,j,t}$: Energy loss in cable $ij \quad [\%]$
 - $intensity_{i,j,t}$: Current intensity on cable $ij \quad [A]$ 
-- $dailyHyd_{u}$: Energy to be produced in each hydraulic press the whole day $\quad [MWh]$
+- $dailyHyd_{u}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
 
 ### Objective Function
 
