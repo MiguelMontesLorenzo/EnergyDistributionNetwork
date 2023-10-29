@@ -225,6 +225,6 @@ In this project, we tackle the optimization problem of energy distribution withi
 
    Proceed to install the packages listed in the `requirements.txt`.
 
-   Open the `main.py` script and adjust its global parameters (defined below the packet import section) to set the solver to be used during the optimisation of the model, and the generation of video showing the optimal evolution over time of the network described in the previous step.
+   Open the `main.py` script and adjust its global parameters (defined below the package import section) to set the solver to be used during the optimisation of the model, and the generation of video showing the optimal evolution over time of the network described in the previous step.
 
    Finally, just run the `main.py` script.
