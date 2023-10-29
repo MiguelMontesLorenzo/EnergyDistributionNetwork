@@ -12,11 +12,12 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 
 ## 2. Simplifications and Implications
 
-- **Linearization of Power Flow Equations:** While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. This means our model may not perfectly capture all the intricacies of real-world power flows, but it offers a good approximation for most scenarios.
+- **Linearization of Power Flow Equations:** While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. Por norma general los problemas de optimización de distribución a través de un grafo requieren ecuaciones asociadas al balance de cantidades entrantes y salientes en cada nodo. En el caso de los problemas de distribución de energía eléctrica la magnitud con la que se trabaja es el potencial eléctrico $S_{i,j}$ en las líneas que conectan a cada nodo, que queda definido por el producto del potencial en el nodo $V_{i,j}$ y la intensidad de la línea $I_{ij}$. De esta forma, las ecuaciones de balance en los nodos (Leyes de Kirchoff) tienen un comportamiento no lineal.
+
+   Por este motivo
   
 - **Constant Voltage:** We assume that the voltage at each node remains constant. This simplifies our calculations but omits the potential voltage variations that can occur in the real world, which can affect power quality and stability.
   
-- **Single Time Frame:** Our optimization is based on a single time frame, ignoring the potential fluctuations in demand and supply that can occur throughout the day. This means the model might not capture the dynamic nature of the grid but provides an average optimal solution.
 
 ---
 
@@ -40,8 +41,8 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 - $FXCOST_{p}$: Fixed cost of keeping a node type $p$ working $\quad [€]$
 - $TRNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
 - $TRNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
-- $W{i,p}$: Unit type $[2D {0,1}]$
-- $CONN_{K,c_t}$: Exist connection between $i$ and $j \quad \{0,1\}$
+- $W{i,p}$: Unit type $[2D \\ \{0,1\}]$
+- $CONN_{i,j}$: Exist connection between $i$ and $j \quad \{0,1\}$
 - $L_{i,j}$: Length of cable $ij \quad [km]$
 - $V_{i,j}$: Voltage of cable $ij \quad [kV]$
 - $R_{i,j}$: Cable $ij$ resistance $\quad [\Omega/km]$
@@ -105,9 +106,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 
 10. **Define maximum productions:**
 
-$p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
-
-  - Sure, continuing with the constraints:
+  - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
 
 11. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
    - Maximum production if active:
@@ -158,23 +157,39 @@ $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
 
 
 
+
 ### Scripts of the Project
 
 1. **main.py**
-    - **Funciones/Métodos**:
-        - `load_and_prepare_data`: Carga y prepara los datos necesarios para el modelo.
-        - `load_and_prepare_dictionaries`: Convierte los datos cargados en diccionarios para su fácil manejo.
-        - `generate_graph`: Genera un gráfico visual de la red eléctrica y su estado actual.
-        - `create_video`: Crea un video visualizando la optimización a lo largo del tiempo.
-    - **Tareas**:
-        - Preparar datos.
-        - Instanciar y optimizar el modelo.
-        - Mostrar los resultados optimizados.
-        - Crear un video de la evolución de la optimización.
+    - **Functions/Methods**:
+        - `load_and_prepare_data`: Loads and prepares the necessary data for the model.
+        - `load_and_prepare_dictionaries`: Converts the loaded data into dictionaries for easy handling.
+        - `generate_graph`: Generates a visual graph of the electrical network and its current status.
+        - `create_video`: Creates a video visualizing the optimization over time.
+    - **Tasks**:
+        - Prepare data.
+        - Instantiate and optimize the model.
+        - Display optimized results.
+        - Create a video of the optimization's evolution.
 
 2. **ego.py**
-    - **Funciones/Métodos**:
-        - [...] (Por proporcionar...)
-    - **Tareas**:
-        - [...] (Por proporcionar...)
+    - **Class**: `ElectricGridOptimization`
+    - **Functions/Methods**:
+        - `__init__`: Initializes the optimization problem with provided parameters and sets.
+        - `define_sets`: Defines sets used in the optimization model.
+        - `define_params`: Defines parameters used in the optimization model.
+        - `define_variables`: Defines decision variables used in the optimization model.
+        - `define_objective`: Defines the objective function of the optimization model.
+        - `define_constraints`: Defines the constraints of the optimization model.
+        - `define_solver`: Sets up the solver for optimization.
+        - `define_solver_path`: Defines the path of the solver executable.
+        - `optimize_problem`: Runs the optimization process and returns the results.
+        - `show_results`: Prints the results of the optimization.
+        - `display_constraints`: Displays the constraints used in the optimization model.
+    - **Tasks**:
+        - Model the optimization problem of an electric grid.
+        - Define the structure of the optimization model (variables, constraints, objective).
+        - Solve the optimization problem.
+        - Display and interpret the results.
+
 
