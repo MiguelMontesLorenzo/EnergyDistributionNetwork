@@ -84,55 +84,55 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 1. **Total demand covered (Kirchoff 1):**
 
-     - $\sum_{i} e_{i,j,t} \leq p_{i,t} - DEM_{i,t}$
+     - $\sum_{i} e_{i,j,t} \leq p_{j,t} - DEM_{j,t} \quad \forall j,t$
 
 2. **Production must cover losses (Kirchoff 2):**
 
-     - $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{i,t}$
+     - $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{j,t} \quad \forall j,t$
 
 3. **Power in line = Powerflow + loss:**
 
-     - $e_{i,j,t} + loss_{i,j,t} = V_{i,j} \times intensity_{i,j,t}$
+     - $e_{i,j,t} + loss_{i,j,t} = V_{i,j} \times intensity_{i,j,t} \quad \forall i,j,t$
 
 4. **PowerFlow sign depends on direction:**
 
-     - $e_{i,j,t} = (- e_{j,i,t})$
-     - $loss_{i,j,t} = (- loss_{j,i,t})$
+     - $e_{i,j,t} = (- e_{j,i,t}) \quad \forall i,j,t$
+     - $loss_{i,j,t} = (- loss_{j,i,t}) \quad \forall i,j,t$
 
 5. **Define Loss as proportional to **$I$**:**
 
-     - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
+     - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t} \quad \forall i,j,t$
 
 6. **PowerFlow limits:**
 
-     - $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j}$
+     - $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j} \quad \forall i,j,t$
 
 7. **No PowerFlow between non-connected nodes:** (if $CONN_{i,j} = 0$)
 
-      - $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0$
+      - $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0 \quad \forall i,j,t$
 
 8. **Positive production:**
 
-     - $p_{i,t} \geq 0$
+     - $p_{i,t} \geq 0 \quad \forall i,t$
 
 9. **Define maximum productions:**
 
-     - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
+     - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p} \quad \forall i,t$
 
 10. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
    - Maximum production if active:
 
-       - $p_{i,t} \leq MAXPROD_p \times a_{i,t}$
+      - $p_{i,t} \leq MAXPROD_p \times a_{i,t} \quad \forall i,t$
      
    - Minimum production if active:
     
-       - $p_{i,t} \geq THRESHOLD_p \times a_{i,t}$
+      - $p_{i,t} \geq THRESHOLD_p \times a_{i,t} \quad \forall i,t$
      
    - Turning off:
      
-       - $a_{i,t-1} \geq a_{i,t} + \varepsilon \Leftrightarrow \text{off} = 1$
+      - $a_{i,t-1} \geq a_{i,t} + \varepsilon \Leftrightarrow \text{off} = 1 \quad \forall i,t$
      
-       - Which can be linearized as:
+      - Which can be linearized as:
      
          - $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t}$
         
@@ -140,9 +140,9 @@ In this project, we tackle the optimization problem of energy distribution withi
      
    - Turning on:
      
-       - $a_{i,t} \geq a_{i,t-1} + \varepsilon \Leftrightarrow \text{on} = 1$
+      - $a_{i,t} \geq a_{i,t-1} + \varepsilon \Leftrightarrow \text{on} = 1 \quad \forall i,t$
      
-       - Which can be linearized as:
+      - Which can be linearized as:
      
          - $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}$
      
@@ -150,21 +150,23 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 11. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
-     
-       - $\sum_{t} W_{i,p} \times p_{i,t} = dailyHyd_i \times W_{i,p}$
+
+      - $\text{If } p = hydraulic \text{:}
+      - $\sum_{t} p_{i,t} = dailyHyd_i \quad \forall i$
      
    - Daily stipulated production:
     
-       - $dailyHyd_{i} = PH_{i} \times H_{i}$
+      - $dailyHyd_{i} = PH_{i} \times H_{i}$
 
 12. **Solar and wind productions are fixed:**
     
    - Solar production:
-    
-       - $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
+      - $\text{If } p = hydraulic \text{:}
+      - $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
      
    - Wind production:
-       - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
+      - $\text{If } p = hydraulic \text{:}
+      - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
 
 
 ---
