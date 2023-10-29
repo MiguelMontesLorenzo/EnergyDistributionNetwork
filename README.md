@@ -125,9 +125,7 @@ $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
        - Which can be linearized as:
      
          - $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t}$
-     
-       - and
-     
+        
          - $a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t})$
      
    - Turning on:
@@ -137,8 +135,6 @@ $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
        - Which can be linearized as:
      
          - $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}$
-     
-       - and
      
          - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
 
