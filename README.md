@@ -57,8 +57,8 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $FXCOST_{p}$: Fixed cost of keeping a node type $p$ working $\quad [€]$
 - $TRNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
 - $TRNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
-- $W{i,p}$: Unit type $[2D \\$ {$0,1$}$]$
-- $CONN_{i,j}$: Exist connection between $i$ and $j \quad$ {$0,1$}
+- $W{i,p}$: Unit type $[2D \\$ { $0,1$ }$]$
+- $CONN_{i,j}$: Exist connection between $i$ and $j \quad$ { $0,1$ }
 - $L_{i,j}$: Length of cable $ij \quad [km]$
 - $V_{i,j}$: Voltage of cable $ij \quad [kV]$
 - $R_{i,j}$: Cable $ij$ resistance $\quad [\Omega/km]$
@@ -69,9 +69,9 @@ In this project, we tackle the optimization problem of energy distribution withi
 ### Variables
 
 - $p_{i,t}$: Production of node $i$ at time $t \quad [\text{kwh}]$
-- $a_{i,t}$: Node $i$ active (producing) at time $t \quad$ {$0,1$}
-- $on_{i,t}$: Time when node $i$ production is turned on $\quad$ {$0,1$}
-- $off_{i,t}$: Time when node $i$ production is turned off $\quad$ {$0,1$}
+- $a_{i,t}$: Node $i$ active (producing) at time $t \quad$ { $0,1$ }
+- $on_{i,t}$: Time when node $i$ production is turned on $\quad$ { $0,1$ }
+- $off_{i,t}$: Time when node $i$ production is turned off $\quad$ { $0,1$ }
 - $e_{i,j,t}$: Energy transferred from $i$ to $j$ at time $t \quad [\text{kwh}]$
 - $loss_{i,j,t}$: Energy loss in cable $ij \quad [\text{kwh}]$
 - $intensity_{i,j,t}$: Current intensity on cable $ij \quad [A]$ 
