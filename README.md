@@ -216,7 +216,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 1. **Create Data**
 
-   Insert in the `data` folder the .csv files corresponding to the description of the electrical network to be optimised.  In order to facilitate the creation of the datasets, a script with the address `.\data\createCSVs.py` has been included to automate the creation of the relevant .csv files by modifying a series of descriptive files located in `.\data\indications`.  
+   Insert in the `data` directory the .csv files corresponding to the description of the electrical network to be optimised.  In order to facilitate the creation of the datasets, a script with the address `.\data\createCSVs.py` has been included to automate the creation of the relevant .csv files by modifying a series of descriptive files located in `.\data\indications`.  
 
    In any case, this repository already contains a fully functional dataset available for model testing by third parties. So this first step of data creation is perfectly avoidable.
 
