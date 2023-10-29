@@ -1,0 +1,4 @@
+type_id:1, type:normal, max_prod:6000, min_prod:0, threshold_prod:500, unitary_cost:0.5, on_cost:4000, off_cost:3000, fixed_cost:800, H:0, PH:0
+type_id:2, type:hydraulic, max_prod:6000, min_prod:0, threshold_prod:0, unitary_cost:0.4, on_cost:4000, off_cost:3000, fixed_cost:900, H:50, PH:360
+type_id:3, type:solar, max_prod:6000, min_prod:0, threshold_prod:0, unitary_cost:0.8, on_cost:4000, off_cost:3000, fixed_cost:300, H:0, PH:0
+type_id:4, type:wind, max_prod:6000, min_prod:0, threshold_prod:0, unitary_cost:0.3, on_cost:4000, off_cost:3000, fixed_cost:300, H:0, PH:0
