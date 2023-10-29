@@ -42,7 +42,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 ### Sets
 
 - $Nodes \\ (i,j)$: Nodes in the network { $P1,P2,\ldots, T1,T2,\ldots, C1,C2$ }
-- $PrTy \\ (p)$: Production type { $\text{thermal}, \text{hydraulic}, \text{solar}, \text{wind}, \text{none}$ } 
+- $PrTy \\ (p)$: Production type { $\text{thermal}, \text{hydraulic}, \text{solar}, \text{eolic}, \text{none}$ } 
 - $Time \\ (t)$: Time { $1, \ldots, 24$ }
 
 ### Parameters
@@ -164,7 +164,7 @@ In this project, we tackle the optimization problem of energy distribution withi
       - $\text{IF } p = solar \text{:}$
       - $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
      
-   - Wind production:
+   - Eolic production:
       - $\text{IF } p = eolic \text{:}$
       - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
 
