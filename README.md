@@ -24,7 +24,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
    $S_{i,j} = V_{i,j} I_{i,j} \\ \\ \alpha \\ \\ I_{i,j}$
 
-   ###### *Note: As a consequence of the discretisation of the problem, hourly time intervals are used instead of continuous time. For consistency, in the following the powerflow* $e_{i,j,t}$ *will be expressed in units of energy [kwh] (power per hour).*
+   ###### *Note: As a consequence of the discretisation of the problem, hourly time intervals are used instead of continuous time. For consistency, in the following, the powerflow* $e_{i,j,t}$ *will be expressed in units of energy [kwh] (power per hour).*
 
    This simplification implies that in this project there is neither the concept of potential at a node nor the concept of Ohm's law in a voltage line. This avoids the need to maintain a decreasing potential from production nodes to consumption nodes in order to generate currents that transport energy, but rather, in some way, we are directly manipulating the currents. In reality, there is a reason why currents alone cannot be increased at the consumption nodes: a very high current accompanied by a very low voltage is a current incapable of crossing large impedances, and therefore incapable of feeding energy-intensive processes.
   
@@ -225,6 +225,6 @@ In this project, we tackle the optimization problem of energy distribution withi
 
    Proceed to install the packages listed in the `requirements.txt`.
 
-   Open the `main.py` script and adjust its global parameters (defined below the package import section) to set the solver to be used during the optimisation of the model, and the generation of video showing the optimal evolution over time of the network defined in the previous step.
+   Open the `main.py` script and adjust its global parameters (defined below the package import section) to set the solver to be used for optimisation of the model, and to activate the generation of video showing the optimal evolution over time of the network after finishing the optimisation process.
 
    Finally, just run the `main.py` script.
