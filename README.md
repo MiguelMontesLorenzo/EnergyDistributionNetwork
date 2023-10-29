@@ -12,9 +12,15 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 
 ## 2. Simplifications and Implications
 
-- **Linearization of Power Flow Equations:** While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. Por norma general los problemas de optimización de distribución a través de un grafo requieren ecuaciones asociadas al balance de cantidades entrantes y salientes en cada nodo. En el caso de los problemas de distribución de energía eléctrica la magnitud con la que se trabaja es el potencial eléctrico $S_{i,j}$ en las líneas que conectan a cada nodo, que queda definido por el producto del potencial en el nodo $V_{i,j}$ y la intensidad de la línea $I_{ij}$. De esta forma, las ecuaciones de balance en los nodos (Leyes de Kirchoff) tienen un comportamiento no lineal.
+- **Linearization of Power Flow Equations:** While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. As a general rule, distribution optimisation problems using a network require equations associated with the balance of incoming and outgoing quantities at each node. In the case of electrical energy distribution problems, the magnitude with which we work is the PowerFlow $S_{i,j}$ in the lines connecting each node, which is defined by the product of the potential at the node $V_{i,j}$ and the intensity of the line $I_{i,j} = V_{i,j} / R_{ij}$. Thus, the balance equations at the nodes (Kirchoff's Laws) have a non-linear behaviour.
 
-   Por este motivo
+   $S_{i,j} = V_{i} I_{i,j} = V^2_{i,j} / R_{i,j} \quad \text{Kirchoff Law: } \sum_{j} S_{i,j} = S^{\text{prod}}_{i} - S^{\text{cons}}_{i}$
+
+   For this reason, in this project the potential drop between nodes $V_{i,j}$ will be taken as a constant of the line, and the PowerFlow will be defined as the product of the current at the node and the potential drop.
+
+   $S_{i,j} = V_{i,j} I_{i,j} = cte_{i,j} I_{i,j}$
+
+   ###### *Note: As a consequence of the discretisation of the problem, hourly time intervals are used instead of continuous time. For consistency in the following the power $e_{i,j,t}$ will be expressed in units of energy [kwh] (power per hour).*
   
 - **Constant Voltage:** We assume that the voltage at each node remains constant. This simplifies our calculations but omits the potential voltage variations that can occur in the real world, which can affect power quality and stability.
   
