@@ -43,7 +43,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 - $Nodes \\ (i,j)$: Nodes in the network { $P1,P2,\ldots, T1,T2,\ldots, C1,C2$ }
 - $PrTy \\ (p)$: Production type { $\text{thermal}, \text{hydraulic}, \text{solar}, \text{wind}, \text{none}$ } 
-- $Time \\ (t)$: Time { $0, \ldots, 23$ }
+- $Time \\ (t)$: Time { $1, \ldots, 24$ }
 
 ### Parameters
 
