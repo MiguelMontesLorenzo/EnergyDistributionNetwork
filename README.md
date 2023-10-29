@@ -119,7 +119,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
      - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p} \quad \forall i,t$
 
-10. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
+10. **Turn on / Turn off (only if node type is $p = \text{thermal}$):**
    - Maximum production if active:
 
       - $p_{i,t} \leq MAXPROD_p \times a_{i,t} \quad \forall i,t$
