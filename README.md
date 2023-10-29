@@ -18,7 +18,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
    $S_{i,j} = V_{i} I_{i,j} = V^2_{i,j} / R_{i,j}$
   
-   $\text{Kirchoff Law: } \quad \sum_{j} S_{i,j} = S^p_i - S^c_{i}$
+   $\text{Kirchhoff Law: } \quad \sum_{j} S_{i,j} = S^p_i - S^c_{i}$
 
    For this reason, in this project the potential drop between nodes $V_{i,j}$ will be taken as a constant of the line, and the PowerFlow will be defined as the product of the current at the node and the potential drop.
 
@@ -86,11 +86,11 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 ### Constraints
 
-1. **Total demand covered (Kirchoff 1):**
+1. **Total demand covered (Kirchhoff 1):**
 
      - $\sum_{j} e_{i,j,t} \leq p_{j,t} - DEM_{j,t} \quad \forall i,t$
 
-2. **Production must cover losses (Kirchoff 2):**
+2. **Production must cover losses (Kirchhoff 2):**
 
      - $\sum_{j} e_{i,j,t} + loss_{i,j,t} \leq p_{j,t} \quad \forall i,t$
 
