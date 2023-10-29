@@ -84,11 +84,11 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 1. **Total demand covered (Kirchoff 1):**
 
-     - $\sum_{i} e_{i,j,t} \leq p_{j,t} - DEM_{j,t} \quad \forall j,t$
+     - $\sum_{j} e_{i,j,t} \leq p_{j,t} - DEM_{j,t} \quad \forall i,t$
 
 2. **Production must cover losses (Kirchoff 2):**
 
-     - $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{j,t} \quad \forall j,t$
+     - $\sum_{j} e_{i,j,t} + loss_{i,j,t} \leq p_{j,t} \quad \forall i,t$
 
 3. **Power in line = Powerflow + loss:**
 
