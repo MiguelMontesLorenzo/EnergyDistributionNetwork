@@ -10,8 +10,14 @@ import matplotlib.pyplot as plt
 import imageio.v2 as imageio
 
 
+# SCRIPT PARAMETERS
 
+# Declare whether a video (showing network optimal evolution) is wanted or not
 MAKE_VIDEO = True
+
+# Declare which optimizer to use (If you dont want to specify optimizer path just set it to None)
+optimizer = 'glpk'
+optimizer_path = None #'C:\\Program Files\\winglpk-4.65\\glpk-4.65\\w64\\glpsol.exe'
 
 
 
@@ -304,13 +310,6 @@ def create_video(node_positions, connections, voltage_types, p_values, DEM_value
         generate_graph(node_positions, connections, voltage_types, diffs, e_values, t, normalized_breakpoints, lims, save_as_image=True)
     print()
 
-    # images = []
-    # filenames = [f'images/graph_at_t_{t}.jpg' for t in time_array]
-
-    # for filename in filenames:
-    #     images.append(imageio.imread(filename))
-
-    # imageio.mimsave('graph_video.mp4', images, fps=1)
 
     images = []
     filenames = [f'images/graph_at_t_{t}.jpg' for t in time_array]
@@ -329,14 +328,11 @@ if __name__ == "__main__":
 
     # sets, params = load_and_prepare_data()
     sets, params, extra = load_and_prepare_dictionaries()
-    optimizer = 'glpk'
-    optimizer_path = 'C:\\Program Files\\winglpk-4.65\\glpk-4.65\\w64\\glpsol.exe'
     
     # Instantiate model
     model = ego.ElectricGridOptimization(sets, params)
     
     # Select the optimizer
-    # model.define_solver(optimizer)
     model.define_solver_path(optimizer, optimizer_path)
 
     # Optimize the model

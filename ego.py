@@ -357,13 +357,13 @@ class ElectricGridOptimization:
         self.model.eolic_production_constraint = pyo.Constraint(self.model.Nodes, self.model.PrTy, self.model.Time, rule=eolic_production_rule)
 
 
+    def define_solver_path(self, solver_name:str, solver_path:str = None):
 
-    def define_solver(self, solver_name='glpk'):
-        self.solver = pyo.SolverFactory(solver_name)
+        if solver_path == None:
+            self.solver = pyo.SolverFactory(solver_name)
+        else:
+            self.solver = pyo.SolverFactory(solver_name, executable=solver_path)
 
-    def define_solver_path(self, solver_name:str, solver_path:str):
-        self.solver = pyo.SolverFactory(solver_name, executable=solver_path)
-        # self.solver.options['--itlim'] = 500
 
     def optimize_problem(self):
 
