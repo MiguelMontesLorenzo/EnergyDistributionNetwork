@@ -174,7 +174,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 
 ---
 
-### 4. Scripts of the Project
+## 4. Scripts of the Project
 
 1. **main.py**
     - **Functions/Methods**:
