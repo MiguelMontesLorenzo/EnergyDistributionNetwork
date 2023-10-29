@@ -78,47 +78,46 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $dailyHyd_{i}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
 
 ### Objective Function
-
-$\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u,t} \times FXCOST_{p} + on_{u,t} \times TRNONCOST_{p} + off_{u,t} \times TRNOFFCOST_{p} \right)$
+- $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u,t} \times FXCOST_{p} + on_{u,t} \times TRNONCOST_{p} + off_{u,t} \times TRNOFFCOST_{p} \right)$
 
 ### Constraints
 
 1. **Total demand covered (Kirchoff 1):**
 
-  - $\sum_{i} e_{i,j,t} \leq p_{i,t} - DEM_{i,t}$
+     - $\sum_{i} e_{i,j,t} \leq p_{i,t} - DEM_{i,t}$
 
 2. **Production must cover losses (Kirchoff 2):**
 
-  - $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{i,t}$
+     - $\sum_{i} e_{i,j,t} + loss_{i,j,t} \leq p_{i,t}$
 
 3. **Power in line = Powerflow + loss:**
 
-  - $e_{i,j,t} + loss_{i,j,t} = V_{i,j} \times intensity_{i,j,t}$
+     - $e_{i,j,t} + loss_{i,j,t} = V_{i,j} \times intensity_{i,j,t}$
 
 4. **PowerFlow sign depends on direction:**
 
-  - $e_{i,j,t} = (- e_{j,i,t})$
-  - $loss_{i,j,t} = (- loss_{j,i,t})$
+     - $e_{i,j,t} = (- e_{j,i,t})$
+     - $loss_{i,j,t} = (- loss_{j,i,t})$
 
 5. **Define Loss as proportional to **$I$**:**
 
-  - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
+     - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
 
 6. **PowerFlow limits:**
 
-  - $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j}$
+     - $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j}$
 
 7. **No PowerFlow between non-connected nodes:** (if $CONN_{i,j} = 0$)
 
-   - $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0$
+      - $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0$
 
 8. **Positive production:**
 
-  - $p_{i,t} \geq 0$
+     - $p_{i,t} \geq 0$
 
 9. **Define maximum productions:**
 
-  - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
+     - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
 
 10. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
    - Maximum production if active:
