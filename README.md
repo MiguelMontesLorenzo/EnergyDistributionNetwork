@@ -172,7 +172,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
        - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
 
 
-
+---
 
 ### 4. Scripts of the Project
 
