@@ -44,7 +44,7 @@ In this project, we've tackled the challenge of optimizing the energy distributi
 - $CONN_{K,c_t}$: Exist connection between $i$ and $j \quad \{0,1\}$
 - $L_{i,j}$: Length of cable $ij \quad [km]$
 - $V_{i,j}$: Voltage of cable $ij \quad [kV]$
-- $R_{i,j}$: Cable $ij$ resistance $\quad [\Omega/km] ~15$
+- $R_{i,j}$: Cable $ij$ resistance $\quad [\Omega/km]$
 - $H_{i}$: Height of hydraulic press water at time $t \quad [m]$
 - $PH_{i}$: Relationship between height of hydraulic press and maximum production $\quad [\text{kwh}/m]$
 - $F_{i}$: Minimum flowing water $\quad [m^3]$
