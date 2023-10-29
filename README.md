@@ -104,27 +104,23 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
 
   - $loss_{i,j,t} = R_{i,j} \times L_{i,j} \times intensity_{i,j,t}$
 
-6. **Define PowerFlow as **$V I$**:**
-
-  - $e_{i,j,t} = (V_{i,j} - R_{i,j} \times L_{i,j}) \times intensity_{i,j,t}$
-
-7. **PowerFlow limits:**
+6. **PowerFlow limits:**
 
   - $- MAXPOWERFLOW_{i,j} < e_{i,j,t} < MAXPOWERFLOW_{i,j}$
 
-8. **No PowerFlow between non-connected nodes:** (if $CONN_{i,j} = 0$)
+7. **No PowerFlow between non-connected nodes:** (if $CONN_{i,j} = 0$)
 
    - $R_{i,j} = 0, V_{i,j} = 0, loss_{i,j,t} = 0, e_{i,j,t} = 0$
 
-9. **Positive production:**
+8. **Positive production:**
 
   - $p_{i,t} \geq 0$
 
-10. **Define maximum productions:**
+9. **Define maximum productions:**
 
   - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p}$
 
-11. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
+10. **Turn on / Turn off (only if node type is $p = \text{'thermal'}$):**
    - Maximum production if active:
 
        - $p_{i,t} \leq MAXPROD_p \times a_{i,t}$
@@ -153,7 +149,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
      
          - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
 
-12. **Hydraulic production matches daily stipulated:**
+11. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
      
        - $\sum_{t} W_{i,p} \times p_{i,t} = dailyHyd_i \times W_{i,p}$
@@ -162,7 +158,7 @@ $\text{minimize} \sum_{u,t} W_{u,p} \left( p_{u,t} \times UNITARYCOST_{p} + a_{u
     
        - $dailyHyd_{i} = PH_{i} \times H_{i}$
 
-13. **Solar and wind productions are fixed:**
+12. **Solar and wind productions are fixed:**
     
    - Solar production:
     
