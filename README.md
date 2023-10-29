@@ -151,7 +151,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 11. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
 
-      - $\text{If } p = hydraulic \text{:}$
+      - $\text{IF } p = hydraulic \text{:}$
       - $\sum_{t} p_{i,t} = dailyHyd_i \quad \forall i$
      
    - Daily stipulated production:
@@ -161,11 +161,11 @@ In this project, we tackle the optimization problem of energy distribution withi
 12. **Solar and wind productions are fixed:**
     
    - Solar production:
-      - $\text{If } p = solar \text{:}$
+      - $\text{IF } p = solar \text{:}$
       - $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
      
    - Wind production:
-      - $\text{If } p = eolic \text{:}$
+      - $\text{IF } p = eolic \text{:}$
       - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
 
 
