@@ -61,7 +61,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $FXCOST_{p}$: Fixed cost of keeping a node type $p$ working $\quad [€]$
 - $TRNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
 - $TRNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
-- $W{i,p}$: Unit type [2D { $0,1$ } ]
+- $W_{i,p}$: Unit type [2D { $0,1$ } ]
 - $CONN_{i,j}$: Exist connection between $i$ and $j \quad$ { $0,1$ }
 - $L_{i,j}$: Length of cable $ij \quad [km]$
 - $V_{i,j}$: Voltage of cable $ij \quad [kV]$
