@@ -14,7 +14,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 - **Linearization of Power Flow Equations:**
   
-   While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. As a general rule, distribution optimisation problems using a network require equations associated with the balance of incoming and outgoing quantities at each node. In the case of electrical energy distribution problems, the magnitude with which we work is the PowerFlow $S_{i,j}$ in the lines connecting each node, which is defined by the product of the potential at the node $V_{i,j}$ and the intensity of the line $I_{i,j} = V_{i,j} / R_{ij}$. Thus, the balance equations at the nodes (Kirchoff's Laws) have a non-linear behaviour.
+   While the true nature of power flows in a network is governed by nonlinear equations, we've linearized them for the sake of simplicity. As a general rule, distribution optimisation problems using a network require equations associated with the balance of incoming and outgoing quantities at each node. In the case of electrical energy distribution problems, the magnitude with which we work is the PowerFlow $S_{i,j}$ in the lines connecting each node, which is defined by the product of the potential at the node $V_{i,j}$ and the intensity of the line $I_{i,j} = V_{i,j} / R_{ij}$. Thus, the balance equations at the nodes (Kirchhoff's Laws) have a non-linear behaviour.
 
    $S_{i,j} = V_{i} I_{i,j} = V^2_{i,j} / R_{i,j}$
   
