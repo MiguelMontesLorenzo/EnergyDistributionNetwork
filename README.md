@@ -166,11 +166,11 @@ In this project, we tackle the optimization problem of energy distribution withi
     
    - Solar production:
       - $\text{IF } p = solar \text{:}$
-      - $p_{i,t} \times W_{i,p} = SOLAR_{i,t} \times W_{i,p}$
+      - $p_{i,t} = SOLAR_{i,t}$
      
    - Eolic production:
       - $\text{IF } p = eolic \text{:}$
-      - $p_{i,t} \times W_{i,p} = WIND_{i,t} \times W_{i,p}$
+      - $p_{i,t} = WIND_{i,t}$
 
 
 ---
