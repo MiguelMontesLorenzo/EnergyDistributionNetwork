@@ -59,8 +59,10 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $WIND_{i,t}$: Wind power production of node $i$ at time $t \quad [\text{kwh}]$
 - $UNITARYCOST_{p}$: Unitary production cost of unit type $p \quad [€/\text{kwh}]$
 - $FXCOST_{p}$: Fixed cost of keeping a node type $p$ working $\quad [€]$
-- $TRNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
-- $TRNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
+- $TURNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
+- $TURNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
+- $TURNONDELAY_{i}$: Minimum time before turning on after turnning off $\quad [h]$
+- $TURNOFFCOST_{i}$: Minimum time before turning off after turnning on $\quad [h]$
 - $W_{i,p}$: Unit type [2D { $0,1$ } ]
 - $CONN_{i,j}$: Exist connection between $i$ and $j \quad$ { $0,1$ }
 - $L_{i,j}$: Length of cable $ij \quad [km]$
@@ -82,7 +84,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $dailyHyd_{i}$: Energy to be produced in each hydraulic press the whole day $\quad [\text{kwh}]$
 
 ### Objective Function
-- $\text{minimize} \sum_{i,t} W_{i,p} \left( p_{i,t} \times UNITARYCOST_{p} + a_{i,t} \times FXCOST_{p} + on_{i,t} \times TRNONCOST_{p} + off_{i,t} \times TRNOFFCOST_{p} \right)$
+- $\text{minimize} \sum_{i,t} W_{i,p} \left( p_{i,t} \times UNITARYCOST_{p} + a_{i,t} \times FXCOST_{p} + on_{i,t} \times TURNONCOST_{p} + off_{i,t} \times TURNOFFCOST_{p} \right)$
 
 ### Constraints
 
