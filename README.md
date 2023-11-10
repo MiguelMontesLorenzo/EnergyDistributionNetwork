@@ -62,7 +62,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 - $TURNONCOST_{p}$: Cost of turning on node type $p \quad [€]$
 - $TURNOFFCOST_{p}$: Cost of turning off unit type $p \quad [€]$
 - $TURNONDELAY_{i}$: Minimum time before turning on after turnning off $\quad [h]$
-- $TURNOFFCOST_{i}$: Minimum time before turning off after turnning on $\quad [h]$
+- $TURNOFFDELAY_{i}$: Minimum time before turning off after turnning on $\quad [h]$
 - $W_{i,p}$: Unit type [2D { $0,1$ } ]
 - $CONN_{i,j}$: Exist connection between $i$ and $j \quad$ { $0,1$ }
 - $L_{i,j}$: Length of cable $ij \quad [km]$
