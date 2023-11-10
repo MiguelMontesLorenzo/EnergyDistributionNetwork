@@ -271,6 +271,28 @@ class ElectricGridOptimization:
         self.model.r4b_constraint = pyo.Constraint(self.model.Nodes, self.model.Time, self.model.PrTy, rule=r4b)
 
 
+        # 11 Rules for turn on / off delays
+
+        # 11.1 Turn off delay
+        def turn_off_delay_rule(model, i, t):
+            turn_off_delay = 2
+            M = turn_off_delay + 1
+            if t <= max(model.Time) - turn_off_delay:
+                return sum(model.off[i, k] for k in range(t + 1, t + turn_off_delay + 1)) <= (1 - model.on[i, t]) * M
+            else:
+                return pyo.Constraint.Skip
+        self.model.turn_off_delay_constraint = pyo.Constraint(self.model.Nodes, self.model.Time, rule=turn_off_delay_rule)
+
+        # 11.2 Turn on delay
+        def turn_on_delay_rule(model, i, t):
+            turn_on_delay = 2
+            M = turn_on_delay + 1
+            if t <= max(model.Time) - turn_on_delay:
+                return sum(model.on[i, k] for k in range(t + 1, t + turn_on_delay + 1)) <= (1 - model.off[i, t]) * M
+            else:
+                return pyo.Constraint.Skip
+        self.model.turn_on_delay_constraint = pyo.Constraint(self.model.Nodes, self.model.Time, rule=turn_on_delay_rule)
+
 
         # TRICK FOR MAKING RELAXATIONS
         # M = max(max(a), max(b))
@@ -326,7 +348,7 @@ class ElectricGridOptimization:
 
 
 
-        # 11. Hydraulic production matches daily stipulated
+        # 12. Hydraulic production matches daily stipulated
         def hydraulic_production_rule(model, i, p):
             if p == self.production_type_indexes['hydraulic'] and model.W[i,p]:
                 # print('W_it', model.W[i,p])
@@ -335,12 +357,12 @@ class ElectricGridOptimization:
                 return pyo.Constraint.Skip
         self.model.hydraulic_production_constraint = pyo.Constraint(self.model.Nodes, self.model.PrTy, rule=hydraulic_production_rule)
 
-        # 12. Daily stipulated
+        # 13. Daily stipulated
         def daily_stipulated_rule(model, i):
             return model.dailyHyd[i] == model.PH[i] * model.H[i]
         self.model.daily_stipulated_constraint = pyo.Constraint(self.model.Nodes, rule=daily_stipulated_rule)
 
-        # 13. Solar productions are fixed
+        # 14. Solar productions are fixed
         def solar_production_rule(model, i, p, t):
             if p == self.production_type_indexes['solar'] and model.W[i,p]:
                 return model.p[i, t] == model.SOLAR[i, t]
@@ -348,13 +370,15 @@ class ElectricGridOptimization:
                 return pyo.Constraint.Skip
         self.model.solar_production_constraint = pyo.Constraint(self.model.Nodes, self.model.PrTy, self.model.Time, rule=solar_production_rule)
 
-        # 14. Eolic productions are fixed
+        # 15. Eolic productions are fixed
         def eolic_production_rule(model, i, p, t):
             if p == self.production_type_indexes['eolic'] and model.W[i,p]:
                 return model.p[i, t] == model.WIND[i, t]
             else:
                 return pyo.Constraint.Skip
         self.model.eolic_production_constraint = pyo.Constraint(self.model.Nodes, self.model.PrTy, self.model.Time, rule=eolic_production_rule)
+
+
 
 
     def define_solver_path(self, solver_name:str, solver_path:str = None):
