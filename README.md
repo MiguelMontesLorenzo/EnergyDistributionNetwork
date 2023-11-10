@@ -161,7 +161,7 @@ In this project, we tackle the optimization problem of energy distribution withi
      
    - Tunring on delay after turning off
      
-      - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} off_{i,k} \leq (1-on_{i,k}) \cdot M \quad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
+      - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} on_{i,k} \leq (1-off_{i,k}) \cdot M \quad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
        
 
 13. **Hydraulic production matches daily stipulated:**
