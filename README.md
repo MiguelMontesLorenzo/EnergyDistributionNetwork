@@ -8,7 +8,7 @@ Electric grids are intricate networks responsible for transmitting electricity f
 
 In this project, we tackle the optimization problem of energy distribution within an electrical grid using the python `pyomo` package. The main goal is to minimize the total operational cost of the network while satisfying energy demands, maintaining grid stability, and respecting the physical constraints of the infrastructure.
 
-<img src="https://github.com/MiguelMontesLorenzo/EnergyDistributionNetwork/blob/main/images/graph_at_t_1.jpg" width="200">
+<img src="https://github.com/MiguelMontesLorenzo/EnergyDistributionNetwork/blob/main/images/graph_at_t_1.jpg" width="80%">
 
 ---
 
