@@ -11,7 +11,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 <p align="center">
   <br>
   <img src="https://github.com/MiguelMontesLorenzo/EnergyDistributionNetwork/blob/main/images/graph_at_t_1.jpg" width="70%">
-  <br>
+  <br><br>
 </p>
 
 ---
