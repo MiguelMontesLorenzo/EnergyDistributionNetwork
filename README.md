@@ -151,8 +151,18 @@ In this project, we tackle the optimization problem of energy distribution withi
          - $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}$
      
          - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
+       
+11. **Turn on / Turn off delays (only if node type is $p = \text{thermal}$):**
+   - Turning off delay after turning on
+     
+         - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
+     
+   - Tunring on delay after turning off
+     
+         - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
+       
 
-11. **Hydraulic production matches daily stipulated:**
+13. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
 
       - $\text{IF } p = hydraulic \text{:}$
@@ -162,7 +172,7 @@ In this project, we tackle the optimization problem of energy distribution withi
     
       - $dailyHyd_{i} = PH_{i} \times H_{i}$
 
-12. **Solar and wind productions are fixed:**
+13. **Solar and wind productions are fixed:**
     
    - Solar production:
       - $\text{IF } p = solar \text{:}$
