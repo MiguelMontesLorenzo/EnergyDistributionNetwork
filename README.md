@@ -155,11 +155,11 @@ In this project, we tackle the optimization problem of energy distribution withi
 11. **Turn on / Turn off delays (only if node type is $p = \text{thermal}$):**
    - Turning off delay after turning on
      
-         - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
+      - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
      
    - Tunring on delay after turning off
      
-         - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
+      - $\sum_{t+1 \leq k \leq t+2} off_k \leq (1-on_k) \cdot M$
        
 
 13. **Hydraulic production matches daily stipulated:**
