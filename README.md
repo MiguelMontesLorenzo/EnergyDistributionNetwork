@@ -170,7 +170,7 @@ In this project, we tackle the optimization problem of energy distribution withi
       - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} on_{i,k} \leq (1-off_{i,k}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
        
 
-13. **Hydraulic production matches daily stipulated:**
+12. **Hydraulic production matches daily stipulated:**
    - Total hydraulic production:
 
       - $\text{IF } p = hydraulic \text{:}$
