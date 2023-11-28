@@ -146,9 +146,9 @@ In this project, we tackle the optimization problem of energy distribution withi
      
       - Which can be linearized as:
      
-         - $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t}$
+         - $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t} \quad \forall i,t$
         
-         - $a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t})$
+         - $a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t}) \quad \forall i,t$
      
    - Turning on:
      
@@ -156,9 +156,9 @@ In this project, we tackle the optimization problem of energy distribution withi
      
       - Which can be linearized as:
      
-         - $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t}$
+         - $a_{i,t} \leq a_{i,t-1} + \varepsilon + M \times \text{on}_{i,t} \quad \forall i,t$
      
-         - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
+         - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t}) \quad \forall i,t$
        
 11. **Turn on / Turn off delays (only if node type is $p = \text{thermal}$):**
    - Minimum wait to turn off after turning on:
