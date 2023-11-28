@@ -58,9 +58,9 @@ In this project, we tackle the optimization problem of energy distribution withi
 ### Parameters
 
 - $DEM_{i,t}$: Electrical demand of node $i$ at time $t \quad [\text{kwh}]$
-- $MAXPROD_{i}$: Maximum production capacity of node $i \quad [\text{kwh}]$
-- $MINPROD_{i}$: Minimum production of node $i \quad [\text{kwh}]$
-- $THRESHOLD_{i}$: Production required if node $i$ is active $\quad [\text{kwh}]$
+- $MAXPROD_{p}$: Maximum production capacity of node $i \quad [\text{kwh}]$
+- $MINPROD_{p}$: Minimum production of node $i \quad [\text{kwh}]$
+- $THRESHOLD_{p}$: Production required if node $i$ is active $\quad [\text{kwh}]$
 - $SOLAR_{i,t}$: Solar production of node $i$ at time $t \quad [\text{kwh}]$
 - $WIND_{i,t}$: Wind power production of node $i$ at time $t \quad [\text{kwh}]$
 - $UNITARYCOST_{p}$: Unitary production cost of unit type $p \quad [€/\text{kwh}]$
@@ -129,7 +129,7 @@ In this project, we tackle the optimization problem of energy distribution withi
 
 9. **Define maximum productions:**
 
-     - $p_{i,t} = \sum W_{i,p} \times MAXPROD_{p} \quad \forall i,t$
+     - $\sum_p W_{i,p} MINPROD_{p} \leq p_{i,t} \leq \sum_p W_{i,p} \times MAXPROD_{p} \quad \forall i,t$
 
 10. **Turn on / Turn off (only if node type is $p = \text{thermal}$):**
    - Maximum production if active:
@@ -161,24 +161,24 @@ In this project, we tackle the optimization problem of energy distribution withi
          - $a_{i,t} \geq a_{i,t-1} + \varepsilon + m \times (1-\text{on}_{i,t})$
        
 11. **Turn on / Turn off delays (only if node type is $p = \text{thermal}$):**
-   - Turning off delay after turning on
+   - Minimum wait to turn off after turning on:
      
       - $\sum_{t+1 \leq k \leq t+TURNOFFDELAY_i} off_{i,k} \leq (1-on_{i,k}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNOFFDELAY_i$
      
-   - Tunring on delay after turning off
+   - Minimum wait to turn on after turning off:
      
       - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} on_{i,k} \leq (1-off_{i,k}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
        
 
 12. **Hydraulic production matches daily stipulated:**
-   - Total hydraulic production:
+   - Total hydraulic production must match the calculated:
 
       - $\text{IF } p = hydraulic \text{:}$
         - $\sum_{t} p_{i,t} = dailyHyd_i \quad \forall i$
      
-   - Daily stipulated production:
+   - Hydraulic daily production:
     
-      - $dailyHyd_{i} = PH_{i} \times H_{i}$
+      - $dailyHyd_{i} = PH_{i} \times H_{i} \quad \forall i$
 
 13. **Solar and wind productions are fixed:**
     
