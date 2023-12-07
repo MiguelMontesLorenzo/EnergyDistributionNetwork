@@ -146,7 +146,7 @@ In this project, we tackle the optimization problem of energy distribution withi
      
       - Which can be linearized as:
      
-         - $a_{i,t-1} \geq a_{i,t} + \varepsilon + M \times \text{off}_{i,t} \quad \forall i,t$
+         - $a_{i,t-1} \leq a_{i,t} + \varepsilon + M \times \text{off}_{i,t} \quad \forall i,t$
         
          - $a_{i,t-1} \geq a_{i,t} + \varepsilon + m \times (1-\text{off}_{i,t}) \quad \forall i,t$
      
@@ -163,11 +163,11 @@ In this project, we tackle the optimization problem of energy distribution withi
 11. **Turn on / Turn off delays (only if node type is $p = \text{thermal}$):**
    - Minimum wait to turn off after turning on:
      
-      - $\sum_{t+1 \leq k \leq t+TURNOFFDELAY_i} off_{i,k} \leq (1-on_{i,k}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNOFFDELAY_i$
+      - $\sum_{t+1 \leq k \leq t+TURNOFFDELAY_i} off_{i,k} \leq (1-on_{i,t}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNOFFDELAY_i$
      
    - Minimum wait to turn on after turning off:
      
-      - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} on_{i,k} \leq (1-off_{i,k}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
+      - $\sum_{t+1 \leq k \leq t+TURNONDELAY_i} on_{i,k} \leq (1-off_{i,t}) \cdot M \qquad \forall i, \forall t \leq max(Time) - TURNONDELAY_i$
        
 
 12. **Hydraulic production matches daily stipulated:**
